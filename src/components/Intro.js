@@ -8,6 +8,7 @@ import Css from "../assets/css-3.svg"
 import Bootstrap from "../assets/bootstrap-4.svg"
 import Js from "../assets/javascript.svg"
 import { Link } from "react-scroll";
+import { Fade } from "react-awesome-reveal"
 
 const Intro = () => {
     const logos = document.querySelectorAll(".logo");
@@ -18,6 +19,7 @@ const Intro = () => {
 
     return (
         <section id="intro">
+            <Fade cascade damping={0.1}>
             <div className="introContent">
                 <span className="hello">Hello,</span>
                 <span className="introText">
@@ -37,6 +39,7 @@ const Intro = () => {
                     </button>
                 </Link>
             </div>
+            </Fade>
 
             {/* <img src = {bg} alt = 'Profile' className='bg'/> */}
 
@@ -50,9 +53,6 @@ const Intro = () => {
 
             <img src={reactLogo} className="logo2" alt="React logo" />
             
-
-
-
         </section>
     );
 };
