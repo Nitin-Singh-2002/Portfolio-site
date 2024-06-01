@@ -4,8 +4,9 @@ import Linkedin from '../assets/linkedin.svg'
 import Github from '../assets/github.svg'
 import Instagram from '../assets/instagram.svg'
 import Facebook from '../assets/facebook.svg'
+import { Fade, Slide } from "react-awesome-reveal";
 import emailjs from '@emailjs/browser';
-import { Fade, Slide, Zoom } from "react-awesome-reveal"
+
 
 
 const Contact = () => {
@@ -15,11 +16,12 @@ const Contact = () => {
         e.preventDefault();
     
         emailjs
-        .sendForm("service_aslsj7y", "template_d6mzpeq", form.current, "EQfosFYWZiNDJYPA0")
-        .then((result) => {
-            console.log('SUCCESS!', result.text);
-            e.target.reset();
-            alert('Email Sent!');
+        .sendForm('service_zz0v08s', 'template_g4fnnip', form.current, {
+            publicKey: 'tsGL91a9Uo8YsxMpt',
+        })
+        .then(
+            () => {
+            console.log('SUCCESS!');
             },
             (error) => {
             console.log('FAILED...', error.text);
@@ -56,14 +58,12 @@ return (
             <span className = 'contactDesc'>Feel free to contact me</span>
             </Fade>
 
-            <Zoom>
             <form className = 'contactForm' ref={form} onSubmit={sendEmail}>
-            <input type = 'text' className = 'name' placeholder = 'Your Name' name = 'your_name'/>
+            <input type = 'text' className = 'name' placeholder = 'Your Name' name = 'from_name'/>
             <input type = 'email' className = 'email' placeholder = 'Your Email' name = 'your_email'/>
             <textarea className = 'msg' name = 'message' rows= "5" placeholder = 'Your Message'></textarea>
             <button type = "submit" value="Send" className = 'submitBtn'>Submit</button>
             </form>
-            </Zoom>
             
         </div>
     </section>
